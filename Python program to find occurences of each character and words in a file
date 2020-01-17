@@ -1,0 +1,40 @@
+# A python program to read a file and print the each character and word count in a file with the time taken to parse.
+fname = input("Enter file name: ") 
+num_words = 0
+  
+import collections
+import pprint
+import re
+with open(fname, 'r') as info:
+  count = collections.Counter(info.read().upper())
+  value = pprint.pformat(count)
+print(value)
+
+file = open("sample.txt", "r")
+sample = file.read().replace(" ","")
+sample=re.sub(r"\s+", "",sample,flags=re.UNICODE)
+number_of_characters = len(sample)
+print('Number of characters in text file :', number_of_characters)
+
+from collections import Counter
+def word_count(fname):
+        with open(fname) as f:
+                return Counter(f.read().split())
+print("Number of words in the file :",word_count("plb.txt"))
+
+with open(fname, 'r') as f:
+    for line in f:
+        words = line.split()
+        num_words += len(words)
+print("Total Number of words in the file :")
+print(num_words)
+
+import time
+start=time.time()
+print("Start time:",start)
+time.sleep(1)
+end=time.time()
+print("End time:",end)
+print(f"Run time of the program is: {end-start} seconds")
+
+
